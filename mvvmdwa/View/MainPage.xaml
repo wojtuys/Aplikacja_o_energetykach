@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mvvmdwa.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="30">
+
+
+            <Label Text="Nazwa energetyka"/>
+            <Entry Text="{Binding WpisanaNazwa}" Placeholder="Wpisuj tutaj"/>
+
+            <Label Text="Jakie opakowanie ma energetyk"/>
+            <Entry Text="{Binding WpisaneOpakowanie}" Placeholder="Wpisuj tutaj"/>
+
+
+            <Label Text="Ile energetyk ma cukru"/>
+            <Entry Text="{Binding WpisanyCukier}" Keyboard ="Numeric" Placeholder="Wpisuj tutaj"/>
+
+            <Button Text="Dodaj napój do listy" Command="{Binding DodajNapójCommand}"></Button>
+
+            <Label Text="Lista energetyków"/>
+            <CollectionView ItemsSource="{Binding ListaNapojów}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="LightGreen" Padding="10" Margin="10">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="{Binding Nazwa}"/>
+                                <Label Text="{Binding Opakowanie}"/>
+                                <Label Text="{Binding IleCukru}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+                            
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
